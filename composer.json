@@ -1,0 +1,30 @@
+{
+    "name": "igirid/authify",
+    "description": "Laravel based frontend-agnostic authentication package",
+    "keywords": ["authentication", "laravel", "2fa", "verification", "registration", "Two FA", "password-reset"],
+    "type": "library",
+    "readme" : "/readme.md",
+    "license" : "MIT",
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/igiri"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Igirid\\Authify\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David igiri",
+            "email": "sindavisigiri@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^8.58",
+        "illuminate/console": "^8.58",
+        "illuminate/filesystem": "^8.58"
+    }
+}
