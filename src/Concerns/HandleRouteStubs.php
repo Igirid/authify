@@ -133,6 +133,6 @@ trait HandleRouteStubs
      */
     protected function stubsPath()
     {
-        return '../stubs';
+        return '/../stubs';
     }
 }
