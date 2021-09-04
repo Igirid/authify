@@ -2,8 +2,8 @@
 
 namespace Igirid\Authify\Contracts;
 
-use Igiri\Authify\Concerns\HandleRouteStubs;
-use Igiri\Authify\Contracts\Authify as AuthifyContract;
+use Igirid\Authify\Concerns\HandleRouteStubs;
+use Igirid\Authify\Contracts\Authify as AuthifyContract;
 
 class Authify implements AuthifyContract
 {

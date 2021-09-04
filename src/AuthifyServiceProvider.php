@@ -3,7 +3,7 @@
 namespace Igirid\Authify;
 
 use Illuminate\Support\ServiceProvider;
-use Igiri\Authify\Commands\AuthifyScaffold;
+use Igirid\Authify\Commands\AuthifyScaffold;
 
 class AuthifyServiceProvider extends ServiceProvider
 {
