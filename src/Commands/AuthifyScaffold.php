@@ -15,7 +15,7 @@ class AuthifyScaffold extends Command
      */
     protected $signature = 'authify:scaffold
                             {name=User : Model name}
-                            {route=web : Web based or Api route}
+                            {--r|route=web : Web based or Api route}
                             {--o|omit=* : Features to omit}';
 
     /**
