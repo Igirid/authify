@@ -15,8 +15,8 @@ class AuthifyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'Igiri\Authify\Contracts\Authify',
-            'Igiri\Authify\Authify'
+            'Igirid\Authify\Contracts\Authify',
+            'Igirid\Authify\Authify'
         );
     }
 
