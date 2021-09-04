@@ -1,6 +1,6 @@
 <?php
 
-namespace Igirid\Authify\Contracts;
+namespace Igirid\Authify;
 
 use Igirid\Authify\Concerns\HandleRouteStubs;
 use Igirid\Authify\Contracts\Authify as AuthifyContract;
