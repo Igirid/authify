@@ -10,6 +10,11 @@ Authify is designed for some Laravel lovers in the Milky-Way who would - for som
 
 # Configuration 
 
+## Publish Authify's Resources using the `vendor:publish` command
+
+`php artisan vendor:publish --provider="Igirid\Authify\AuthifyServiceProvider"`
+
+
 ##  Ensure `$namespace` in your RouteServiceProvider.php is `'App\Http\Controllers'`
 
 ```
