@@ -4,7 +4,7 @@ namespace Igirid\Authify\Commands;
 
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
-use Igiri\Authify\Contracts\Authify;
+use Igirid\Authify\Contracts\Authify;
 
 class AuthifyScaffold extends Command
 {
