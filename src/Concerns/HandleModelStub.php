@@ -99,8 +99,7 @@ trait HandleModelStub
      */
     protected function replaceModelNamespace($stub)
     {
-        $namespace = $this->getModelNamespace();
-        return str_replace(['DummyNamespace', '{{ namespace }}', '{{namespace}}'], $namespace, $stub);
+        return str_replace(['DummyNamespace', '{{ namespace }}', '{{namespace}}'], $this->getModelNamespace(), $stub);
     }
 
     /**

@@ -1,3 +1,4 @@
 
+
 //Authentication system for {{prefix}}
 Route::prefix('{{prefix}}s')->group(function(){
