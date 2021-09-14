@@ -1,18 +1,18 @@
 
-Route::prefix('2fa')->group(function () {
-    if (config('authify.2fa.sms')) {
-        Route::post('sms', 'TwoFAController@sms');
-    }
-    if (config('authify.2fa.voice')) {
-        Route::post('voice', 'TwoFAController@voice');
-    }
-    if (config('authify.2fa.push')) {
-        Route::post('push', 'TwoFAController@push');
-    }
-    if (config('authify.2fa.email')) {
-        Route::post('email', 'TwoFAController@email');
-    }
-    if (config('authify.2fa.software')) {
-        Route::post('software', 'TwoFAController@software');
-    }
-});
+    Route::prefix('2fa')->group(function () {
+        if (config('authify.2fa.sms')) {
+            Route::post('sms', 'TwoFAController@sms');
+        }
+        if (config('authify.2fa.voice')) {
+            Route::post('voice', 'TwoFAController@voice');
+        }
+        if (config('authify.2fa.push')) {
+            Route::post('push', 'TwoFAController@push');
+        }
+        if (config('authify.2fa.email')) {
+            Route::post('email', 'TwoFAController@email');
+        }
+        if (config('authify.2fa.software')) {
+            Route::post('software', 'TwoFAController@software');
+        }
+    });
