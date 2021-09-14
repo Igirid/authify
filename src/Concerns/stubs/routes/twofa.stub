@@ -1,3 +1,4 @@
+
 Route::prefix('2fa')->group(function () {
     if (config('authify.2fa.sms')) {
         Route::post('sms', 'TwoFAController@sms');

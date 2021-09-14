@@ -1,1 +1,2 @@
     Route::post('login', 'LoginController@register');
+    
