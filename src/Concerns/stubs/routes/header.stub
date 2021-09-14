@@ -1,2 +1,3 @@
 
+//Authentication system for {{prefix}}
 Route::prefix('{{prefix}}')->group(function(){
