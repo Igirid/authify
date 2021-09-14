@@ -70,7 +70,7 @@ trait HandleModelStub
      *
      */
     protected function getModelNamespace(){
-        if ($this->files->exists(app_path('Models'))) {
+        if ($this->files->exists(app_path('/Models'))) {
             return 'App\\Models\\';
         }
         return 'App\\';
@@ -97,7 +97,7 @@ trait HandleModelStub
      * @param  string  $name
      * @return string
      */
-    protected function replaceModelNamespace(&$stub)
+    protected function replaceModelNamespace($stub)
     {
         $namespace = $this->getModelNamespace();
         return str_replace(['DummyNamespace', '{{ namespace }}', '{{namespace}}'], $namespace, $stub);
