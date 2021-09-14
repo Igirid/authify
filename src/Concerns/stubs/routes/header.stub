@@ -1,4 +1,2 @@
 
 Route::prefix('{{prefix}}')->group(function(){
-
-

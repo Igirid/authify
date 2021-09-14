@@ -1,3 +1,4 @@
+    
     Route::prefix('verification')->group(function () {
         Route::post('verify', 'EmailVerificationController@verify');
         Route::post('check', 'EmailVerificationController@check');
