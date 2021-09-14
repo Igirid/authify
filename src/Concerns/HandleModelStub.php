@@ -17,7 +17,7 @@ trait HandleModelStub
 
     public function makeModel(string $name)
     {
-        $model_stub = $this->buildStub('/model.stub');
+        $model_stub = $this->buildModelStub('/model.stub');
         $path = $this->getModelPath($name);
         $this->createModelFromStub($path, $model_stub);
     }
@@ -69,7 +69,7 @@ trait HandleModelStub
      * @return string  $path
      *
      */
-    protected function getNamespace(){
+    protected function getModelNamespace(){
         if ($this->files->exists(app_path('Models'))) {
             return 'App\\Models\\';
         }
@@ -83,7 +83,7 @@ trait HandleModelStub
      * @param  string  $name
      * @return string
      */
-    protected function replaceModel($stub, $model)
+    protected function replaceModelInModel($stub, $model)
     {
         $model = Str::lower($model);
 
@@ -97,9 +97,9 @@ trait HandleModelStub
      * @param  string  $name
      * @return string
      */
-    protected function replaceNamespace(&$stub)
+    protected function replaceModelNamespace(&$stub)
     {
-        $namespace = $this->getNamespace();
+        $namespace = $this->getModelNamespace();
         return str_replace(['DummyNamespace', '{{ namespace }}', '{{namespace}}'], $namespace, $stub);
     }
 
@@ -110,9 +110,9 @@ trait HandleModelStub
      * @return string
      *
      */
-    protected function getStub($path)
+    protected function getModelStub($path)
     {
-        return $this->stubsPath() . $path;
+        return $this->getModelStubsPath() . $path;
     }
 
     /**
@@ -122,7 +122,7 @@ trait HandleModelStub
      * @return string
      *
      */
-    protected function stubsPath()
+    protected function getModelStubsPath()
     {
         return __DIR__ .'/stubs';
     }
@@ -135,14 +135,14 @@ trait HandleModelStub
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildStub($path, $model = null)
+    protected function buildModelStub($path, $model = null)
     {
-        $stub = $this->files->get($this->getStub($path));
+        $stub = $this->files->get($this->getModelStub($path));
 
         if (blank($model)) {
             return $stub;
         }
-        return $this->replaceModel($this->replaceNamespace($stub), $model);
+        return $this->replaceModelInModel($this->replaceModelNamespace($stub), $model);
     }
 
 }

@@ -21,31 +21,31 @@ trait HandleRouteStubs
     {
         $route = Str::lower($route);
 
-        $header = $this->buildStub('/routes/header.stub', $name);
+        $header = $this->buildRouteStub('/routes/header.stub', $name);
         $this->appendStubToFile($this->getRoutePath($route), $header);
 
         if (!in_array('Registeration', $omissions, true)) {
-            $registeration_stub = $this->buildStub('/routes/registeration.stub');
+            $registeration_stub = $this->buildRouteStub('/routes/registeration.stub');
             $this->appendStubToFile($this->getRoutePath($route), $registeration_stub);
         }
         if (!in_array('Login', $omissions, true)) {
-            $login_stub = $this->buildStub('/routes/login.stub');
+            $login_stub = $this->buildRouteStub('/routes/login.stub');
             $this->appendStubToFile($this->getRoutePath($route), $login_stub);
         }
         if (!in_array('Verification', $omissions, true)) {
-            $verification_stub = $this->buildStub('/routes/verification.stub');
+            $verification_stub = $this->buildRouteStub('/routes/verification.stub');
             $this->appendStubToFile($this->getRoutePath($route), $verification_stub);
         }
         if (!in_array('Password', $omissions, true)) {
-            $password_stub = $this->buildStub('/routes/password.stub');
+            $password_stub = $this->buildRouteStub('/routes/password.stub');
             $this->appendStubToFile($this->getRoutePath($route), $password_stub);
         }
         if (!in_array('TwoFA', $omissions, true)) {
-            $twofa_stub = $this->buildStub('/routes/twofa.stub');
+            $twofa_stub = $this->buildRouteStub('/routes/twofa.stub');
             $this->appendStubToFile($this->getRoutePath($route), $twofa_stub);
         }
 
-        $footer = $this->buildStub('/routes/footer.stub');
+        $footer = $this->buildRouteStub('/routes/footer.stub');
         $this->appendStubToFile($this->getRoutePath($route), $footer);
     }
 
@@ -83,9 +83,9 @@ trait HandleRouteStubs
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildStub($path, $prefix = null)
+    protected function buildRouteStub($path, $prefix = null)
     {
-        $stub = $this->files->get($this->getStub($path));
+        $stub = $this->files->get($this->getRouteStub($path));
 
         if (blank($prefix)) {
             return $stub;
@@ -113,9 +113,9 @@ trait HandleRouteStubs
      * @return string
      *
      */
-    protected function getStub($path)
+    protected function getRouteStub($path)
     {
-        return $this->stubsPath() . $path;
+        return $this->getRouteStubsPath() . $path;
     }
 
     /**
@@ -125,7 +125,7 @@ trait HandleRouteStubs
      * @return string
      *
      */
-    protected function stubsPath()
+    protected function getRouteStubsPath()
     {
         return __DIR__ .'/stubs';
     }
