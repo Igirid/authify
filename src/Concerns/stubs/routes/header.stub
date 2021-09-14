@@ -1,1 +1,1 @@
-Route::prefix({{prefix}})->group(function(){
+Route::prefix('{{prefix}}')->group(function(){

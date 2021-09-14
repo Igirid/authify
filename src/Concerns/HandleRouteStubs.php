@@ -58,15 +58,38 @@ trait HandleRouteStubs
             $twofa_stub = $this->buildStub('/routes/twofa.stub');
             $this->appendStubToFile($this->getRoutePath($route), $twofa_stub);
         }
+        //add new line
+        $this->appendCharacterToFile($this->getRoutePath($route), '\n');
 
         $footer = $this->buildStub('/routes/footer.stub');
         $this->appendStubToFile($this->getRoutePath($route), $footer);
     }
+
+    /**
+     * Append a stub content to a route file
+     *
+     * @param  string  $path
+     * @param  string  $stub
+     * @return string
+     *
+     */
     protected function appendStubToFile($path, $stub)
     {
         return $this->files->append($path, $stub);
     }
 
+    /**
+     * Append a character to a route file
+     *
+     * @param  string  $path
+     * @param  string  $character
+     * @return string
+     *
+     */
+    protected function appendCharacterToFile($path, $character)
+    {
+        return $this->files->append($path, $character);
+    }
 
     /**
      * Get the path to the route file to append routes
