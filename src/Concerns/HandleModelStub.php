@@ -3,31 +3,15 @@
 namespace Igirid\Authify\Concerns;
 
 use Illuminate\Support\Str;
-use Illuminate\Filesystem\Filesystem;
-
 /**
  * 
  */
 trait HandleModelStub
 {
     /**
-     * The filesystem instance.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
-
-    public function __construct(Filesystem $files)
-    {
-        $this->files = $files;
-    }
-
-    /**
      * Get the path to the route file to append routes
      *
-     * @param  string  $name (name which will be used as model)
-     * @param  array  $omissions (features of authify that will be ommited)
-     * @param  string  $route (api || web - this is the file to which the routes will be written in the laravel project )
+     * @param  string  $name (name to be used as model)
      * @return void
      */
 
