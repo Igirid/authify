@@ -47,7 +47,7 @@ trait HandleRouteStubs
             $this->appendStubToFile($this->getRoutePath($route), $login_stub);
         }
         if (!in_array('Verification', $omissions, true)) {
-            $verification_stub = $this->buildStub('/routes/verfication.stub');
+            $verification_stub = $this->buildStub('/routes/verification.stub');
             $this->appendStubToFile($this->getRoutePath($route), $verification_stub);
         }
         if (!in_array('Password', $omissions, true)) {
@@ -78,7 +78,7 @@ trait HandleRouteStubs
 
     protected function getRoutePath($route)
     {
-        return base_path('routes/' . $route . 'php');
+        return base_path('routes/' . $route . '.php');
     }
 
     /**

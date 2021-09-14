@@ -1,5 +1,5 @@
 # Authify 
-Authify is designed for some Laravel lovers in the Milky-Way who would - for some valid reason - rather have seperate models for different user types in their application. We'll generate those Boilerplate for you, exposing them in the `App\Http\Controllers` namespace, because we understand you may still need to tweak it to coresspond fully with your project demands.
+Authify is designed for Laravel lovers who would - for some valid reason - rather have seperate models for different user types in their application. We'll generate those Boilerplate for you, exposing them in the `App\Http\Controllers` namespace, because we understand you may still need to tweak it to coresspond fully with your project demands.
 
 > Note That We Do Not Re-invent The Wheel (except in terms of 2FA), We harmonously integrate pre-existing Laravel features into a single package.
 
