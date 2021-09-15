@@ -71,7 +71,7 @@ trait HandleModelStub
      */
     protected function getModelNamespace(){
         if ($this->files->exists(app_path('/Models'))) {
-            return 'App\\Models\\';
+            return 'App\\Models';
         }
         return 'App\\';
     }
@@ -86,7 +86,6 @@ trait HandleModelStub
     protected function replaceModelInModel($stub, $model)
     {
         $model = Str::lower($model);
-
         return str_replace(['DummyModel', '{{ model }}', '{{model}}'], $model, $stub);
     }
 
