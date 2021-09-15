@@ -93,7 +93,7 @@ trait HandleRouteStubs
         return $this->replacePrefix($stub, $prefix);
     }
     /**
-     * Replace the prefix for the given stub.
+     * Replace the prefix (in plural) for the given stub.
      *
      * @param  string  $stub
      * @param  string  $name
@@ -101,8 +101,7 @@ trait HandleRouteStubs
      */
     protected function replacePrefix($stub, $prefix)
     {
-        $prefix = Str::lower($prefix);
-
+        $prefix = Str::plural(Str::lower($prefix));
         return str_replace(['DummyPrefix', '{{ prefix }}', '{{prefix}}'], $prefix, $stub);
     }
 
