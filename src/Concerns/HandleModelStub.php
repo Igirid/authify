@@ -17,7 +17,7 @@ trait HandleModelStub
 
     public function makeModel(string $name)
     {
-        $model_stub = $this->buildModelStub('/model.stub');
+        $model_stub = $this->buildModelStub('/model.stub', Str::ucfirst($name));
         $path = $this->getModelPath($name);
         $this->createModelFromStub($path, $model_stub);
     }
@@ -46,7 +46,7 @@ trait HandleModelStub
     protected function getModelDirectory()
     {
         if ($this->files->exists(app_path('Models'))) {
-            return app_path('Models');
+            return app_path('Models/');
         }
         return app_path();
     }
