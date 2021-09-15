@@ -17,7 +17,7 @@ trait HandleModelStub
 
     public function makeModel(string $name)
     {
-        $model_stub = $this->buildModelStub('/model.stub', Str::ucfirst($name));
+        $model_stub = $this->buildModelStub('/model.stub', $name);
         $path = $this->getModelPath($name);
         $this->createModelFromStub($path, $model_stub);
     }
@@ -85,8 +85,7 @@ trait HandleModelStub
      */
     protected function replaceModelInModel($stub, $model)
     {
-        $model = Str::lower($model);
-        return str_replace(['DummyModel', '{{ model }}', '{{model}}'], $model, $stub);
+        return str_replace(['DummyModel', '{{ model }}', '{{model}}'], Str::ucfirst($model), $stub);
     }
 
     /**

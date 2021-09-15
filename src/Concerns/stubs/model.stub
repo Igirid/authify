@@ -2,29 +2,25 @@
 
 namespace {{namespace}};
 
-use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class {{model}} extends User
+class {{model}} extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
-
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'mobile_number',
+        'name',
         'email',
         'password',
-        'uuid',
-        'status'
     ];
 
     /**
@@ -45,5 +41,4 @@ class {{model}} extends User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
 }
