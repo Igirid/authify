@@ -1,8 +1,4 @@
 
-
-//Authentication system for {{prefix}}
-Route::middleware(config('fortify.middleware', ['web']))->group(function(){
-
     $enableViews = config('fortify.views', true);
     Route::prefix('{{prefix}}')->group(function () use($enableViews) {
 

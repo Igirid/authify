@@ -2,14 +2,15 @@
 
 namespace Igirid\Authify;
 
-use Igirid\Authify\Concerns\HandleRouteStubs;
+use Igirid\Authify\Concerns\HandleRoutesStub;
 use Igirid\Authify\Concerns\HandleModelStub;
+use Igirid\Authify\Concerns\HandleCreateNewUser;
 use Illuminate\Filesystem\Filesystem;
 use Igirid\Authify\Contracts\Authify as AuthifyContract;
 
 class Authify implements AuthifyContract
 {
-    use HandleRouteStubs, HandleModelStub;
+    use HandleRoutesStub, HandleModelStub, HandleCreateNewUser;
     /**
      * The filesystem instance.
      *
@@ -22,32 +23,7 @@ class Authify implements AuthifyContract
         $this->files = $files;
     }
 
-    public function makeRegisterationController(string $name)
-    {
+    public function setUpFortifyActions(string $name){
+        $this->makeCreateNewUser($name);
     }
-
-    public function makeLoginController(string $name)
-    {
-    }
-
-    public function makeModelMigration(string $name)
-    {
-    }
-
-    public function makePasswordController(string $name)
-    {
-    }
-
-    public function makeVerificationController(string $name)
-    {
-    }
-
-    public function makeTwoFAController(string $name)
-    {
-    }
-
-    public function makeTwoFAMigration(string $name)
-    {
-    }
-
 }

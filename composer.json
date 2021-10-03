@@ -25,7 +25,9 @@
     "require": {
         "illuminate/support": "^8.58",
         "illuminate/console": "^8.58",
-        "illuminate/filesystem": "^8.58"
+        "illuminate/filesystem": "^8.58",
+        "laravel/fortify": "^1.8",
+        "illuminate/config": "^8.61"
     },
     "extra": {
         "laravel": {

@@ -15,8 +15,7 @@ class AuthifyScaffold extends Command
      */
     protected $signature = 'authify:scaffold
                             {name=User : Model name}
-                            {--r|route=web : Web based or Api route}
-                            {--o|omit=* : Features to omit}';
+                            {--r|route=web : Web based or Api route}';
 
     /**
      * The console command description.
@@ -43,51 +42,20 @@ class AuthifyScaffold extends Command
     public function handle(Authify $authify)
     {
         $name = Str::ucfirst($this->argument('name'));
-        $omissions = [...$this->option('omit')];
 
         //create progress bar
-        $bar = $this->output->createProgressBar(10);
+        $bar = $this->output->createProgressBar(4);
         $bar->start();
 
-        foreach ($omissions as &$omit) {
-            $omit = Str::ucfirst($omit);
-        }
-        $bar->advance(2);
-
-        $authify->makeRoutes($name, $omissions, Str::ucfirst($this->option('route')));
+        $authify->makeRoutes($name, Str::ucfirst($this->option('route')));
         $bar->advance();
 
         $authify->makeModel($name);
         $bar->advance();
 
-        $authify->makeModelMigration($name);
+        $authify->setUpFortifyActions($name);
         $bar->advance();
 
-        if (!in_array('Registeration', $omissions)) {
-            $authify->makeRegisterationController($name);
-        }
-        $bar->advance();
-
-        if (!in_array('Login', $omissions)) {
-            $authify->makeLoginController($name);
-        }
-        $bar->advance();
-
-        if (!in_array('Password', $omissions)) {
-            $authify->makePasswordController($name);
-        }
-        $bar->advance();
-
-        if (!in_array('Verification', $omissions)) {
-            $authify->makeVerificationController($name);
-        }
-        $bar->advance();
-
-        if (!in_array('TwoFA', $omissions)) {
-            $authify->makeTwoFAController($name);
-            $authify->makeTwoFAMigration($name);
-        }
-        $bar->advance();
         $bar->finish();
 
         $this->newLine(2);

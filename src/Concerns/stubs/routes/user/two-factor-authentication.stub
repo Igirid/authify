@@ -1,0 +1,21 @@
+
+        $twoFactorMiddleware = Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
+        ? ['auth:' . config('fortify.guard'), 'password.confirm']
+        : ['auth:' . config('fortify.guard')];  
+        
+        Route::middleware($twoFactorMiddleware)->group(function () {
+            Route::post('/two-factor-authentication', fortify('two-factor-authentication', 'store'))
+                ->name('two-factor.enable');
+
+            Route::delete('/two-factor-authentication', fortify('two-factor-authentication', 'destroy'))
+                ->name('two-factor.disable');
+
+            Route::get('/two-factor-qr-code', fortify('two-factor-qr-code', 'show'))
+                ->name('two-factor.qr-code');
+
+            Route::get('/two-factor-recovery-codes', fortify('recovery-code', 'index'))
+                ->name('two-factor.recovery-codes');
+
+            Route::post('/two-factor-recovery-codes', fortify('recovery-code', 'store'));
+        });
+

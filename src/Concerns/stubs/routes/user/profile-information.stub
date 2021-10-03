@@ -1,0 +1,5 @@
+    
+    Route::put('/profile-information', fortify('profile-information', 'update'))
+        ->middleware(['auth:' . config('fortify.guard')])
+        ->name('user-profile-information.update');
+        

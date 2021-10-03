@@ -1,7 +1,7 @@
 # Authify 
-Authify is designed for Laravel lovers who would - for some valid reason - rather have seperate models for different user types in their application. We'll generate those Boilerplate for you, exposing them in the `App\Http\Controllers` namespace, because we understand you may still need to tweak it to coresspond fully with your project demands.
+Authify is designed to give laravel developers a headstart. If you would, for some valid reason, rather have seperate models for different user types in your application, Authify basically scaffolds Authentication, Registration, Verification, Password recovery and 2FA Laravel driven boilerplate for your aplication. Authify exposes yor Backend logic in the `App\Http\Controllers` namespace. We understand you may still want to modify the logic to coresspond fully with your project demands, so we let yo do just that.
 
-> Note That We Do Not Re-invent The Wheel (except in terms of 2FA), We harmonously integrate pre-existing Laravel features into a single package.
+> Note that Authify does not re-invent The Wheel (except in terms of 2FA), It harmonously integrates pre-existing Laravel features into one package to save your precious time.
 
 ## Requirements
 
